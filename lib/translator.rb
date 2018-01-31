@@ -39,5 +39,15 @@ class Translator
                     "9" => "----.",
                     "0" => "-----",
                     " " => " "}
+                    @string_array = []
+  end
+
+  def eng_to_morse(string)
+    new_string = ""
+    @string_array = string.split("")
+    @string_array.each do |letter|
+      new_string += @dictionary[letter]
+    end
+    new_string
   end
 end
