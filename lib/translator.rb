@@ -1,3 +1,5 @@
+require 'input.txt'
+
 class Translator
   attr_reader :dictionary
 
@@ -43,11 +45,15 @@ class Translator
   end
 
   def eng_to_morse(string)
+    downcase_string = string.downcase
+    all_string = downcase_string.to_s
     new_string = ""
-    @string_array = string.split("")
+    @string_array = all_string.split("")
     @string_array.each do |letter|
       new_string += @dictionary[letter]
     end
     new_string
   end
+
+  
 end

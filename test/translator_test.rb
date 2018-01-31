@@ -27,4 +27,20 @@ class Translator_Test < Minitest::Test
 
     assert_equal "......-...-..--- .-----.-..-..-..", translator.eng_to_morse("hello world")
   end
+
+  def test_caps_expansion
+    translator = Translator.new
+
+    translator.eng_to_morse("Hello World")
+
+    assert_equal "......-...-..--- .-----.-..-..-..", translator.eng_to_morse("Hello World")
+  end
+
+  def test_number_translation
+    translator = Translator.new
+
+    translator.eng_to_morse("There are 3 ships")
+
+    assert_equal "-......-.. .-.-.. ...-- ..........--....", translator.eng_to_morse("There are 3 ships")
+  end
 end
