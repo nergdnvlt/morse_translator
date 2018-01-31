@@ -48,7 +48,6 @@ class Translator_Test < Minitest::Test
     translator = Translator.new
 
     translator.from_file("input.txt")
-    # binding.pry
 
     assert_equal ".. .--- ..-. .- ..-....-...", translator.from_file("input.txt")
   end

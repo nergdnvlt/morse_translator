@@ -60,24 +60,21 @@ class Translator
   def from_file(filename)
     file_path = "./lib/#{filename}"
     @file_text = File.open(file_path)
-    new_string = ""
-    new_string2
+    translation = ""
     string_arr = []
-    string_array = []
+    input_array = []
 
     @file_text.each_char do |char|
       string_arr.push(char)
     end
 
-    string_array = string_arr[0 .. -2]
-    binding.pry
-    string_array.each do |letter|
-      new_string2 = new_string.to_s
-      new_string2 << @dictionary[letter]
+    input_array = string_arr[0 .. -2]
+    input_array.each do |char|
+      char = char.downcase
+      translation += "#{@dictionary[char]}"
     end
 
-    binding.pry
-    new_string
+    translation
   end
 
 
