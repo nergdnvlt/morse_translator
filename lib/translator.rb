@@ -1,4 +1,4 @@
-require 'input.txt'
+require 'pry'
 
 class Translator
   attr_reader :dictionary
@@ -42,6 +42,8 @@ class Translator
                     "0" => "-----",
                     " " => " "}
                     @string_array = []
+                    @string_arr = []
+                    @file_text
   end
 
   def eng_to_morse(string)
@@ -55,5 +57,28 @@ class Translator
     new_string
   end
 
-  
+  def from_file(filename)
+    file_path = "./lib/#{filename}"
+    @file_text = File.open(file_path)
+    new_string = ""
+    new_string2
+    string_arr = []
+    string_array = []
+
+    @file_text.each_char do |char|
+      string_arr.push(char)
+    end
+
+    string_array = string_arr[0 .. -2]
+    binding.pry
+    string_array.each do |letter|
+      new_string2 = new_string.to_s
+      new_string2 << @dictionary[letter]
+    end
+
+    binding.pry
+    new_string
+  end
+
+
 end
